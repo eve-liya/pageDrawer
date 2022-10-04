@@ -3,21 +3,24 @@ document.getElementById("division").style.position = "absolute";
 
 draw = (e) => {
     if(!isPainting) {
-        console.log("bruh")
+       // console.log("bruh")
         return;
     }
+    var rect = canva.getBoundingClientRect();
     ctx.lineWidth = lineWidth;
     ctx.lineCap = 'round';
-    
-    ctx.lineTo(e.clientX, e.clientY);
+    ctx.lineTo(e.clientX - rect.x, e.clientY- rect.y);
     ctx.stroke();
    // console.log("drawing")
 }
 
 canva.addEventListener('mousedown', (e) => {
     isPainting = true;
-    startX = Math.floor(e.clientX) - canva.offsetWidth;
-    startY = Math.floor(e.clientY)- canva.offsetHeight;
+    
+    var rect = canva.getBoundingClientRect();
+    console.log(rect);
+    startX = e.clientX - rect.x;
+    startY = e.clientY- rect.y;
     canva.addEventListener('mousemove', draw);
 });
 

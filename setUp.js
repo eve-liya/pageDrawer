@@ -9,7 +9,8 @@ canva.setAttribute("height", document.documentElement.scrollHeight);
 bruh.appendChild(bruh2);
 division.appendChild(canva);
 division.appendChild(bruh);
-document.body.appendChild(division);
+document.body.insertBefore(division, document.body.firstChild);
+division.setAttribute("height", "100%");
 division.style.zIndex = "1000";
 division.style.position = "absolute";
 
