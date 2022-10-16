@@ -3,7 +3,7 @@ document.getElementById("division").style.position = "absolute";
 
 draw = (e) => {
     if(!isPainting) {
-       // console.log("bruh")
+       //console.log("bruh")
         return;
     }
     var rect = canva.getBoundingClientRect();

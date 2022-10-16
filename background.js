@@ -3,6 +3,7 @@ chrome.action.onClicked.addListener((tab) => {
       target: { tabId: tab.id },
       files: ['setUp.js']
     })
+    
     chrome.action.setPopup({
       popup: 'popup.html',
       tabId: tab.id
