@@ -14,6 +14,7 @@ stopDraw.addEventListener("click", async () => {
         func: stopDrawing,
       });
     });
+    
 changeColor.addEventListener("click", async() => {
     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     chrome.scripting.executeScript({
@@ -31,7 +32,6 @@ changeColor.addEventListener("click", async() => {
       //canva = document.getElementById("canva");
        console.log("stopped")
        canva.removeEventListener('mousemove', draw);
-       document.getElementById("division").style.zIndex = "0";
-       document.getElementById("division").style.position = "static";
+       document.getElementById("division").hidden = true;
   }
   

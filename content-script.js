@@ -1,5 +1,4 @@
-document.getElementById("division").style.zIndex = "1000";
-document.getElementById("division").style.position = "absolute";
+document.getElementById("division").hidden = false;
 
 draw = (e) => {
     if(!isPainting) {
@@ -16,7 +15,6 @@ draw = (e) => {
 
 canva.addEventListener('mousedown', (e) => {
     isPainting = true;
-    
     var rect = canva.getBoundingClientRect();
     console.log(rect);
     startX = e.clientX - rect.x;
