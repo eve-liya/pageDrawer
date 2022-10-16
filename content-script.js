@@ -2,7 +2,6 @@ document.getElementById("division").hidden = false;
 
 draw = (e) => {
     if(!isPainting) {
-       //console.log("bruh")
         return;
     }
     var rect = canva.getBoundingClientRect();
@@ -10,7 +9,6 @@ draw = (e) => {
     ctx.lineCap = 'round';
     ctx.lineTo(e.clientX - rect.x, e.clientY- rect.y);
     ctx.stroke();
-   // console.log("drawing")
 }
 
 canva.addEventListener('mousedown', (e) => {
@@ -27,5 +25,9 @@ canva.addEventListener('mouseup', e => {
     ctx.stroke();
     ctx.beginPath();
 });
+
+stroke.addEventListener('change', e =>{
+    ctx.strokeStyle = e.target.value;
+})
 
 

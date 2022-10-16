@@ -1,7 +1,6 @@
 drawing.addEventListener("click", async () => {
     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-
-chrome.scripting.executeScript({
+    chrome.scripting.executeScript({
     target: { tabId: tab.id },
     files: ['content-script.js']
   });
@@ -14,19 +13,6 @@ stopDraw.addEventListener("click", async () => {
         func: stopDrawing,
       });
     });
-    
-changeColor.addEventListener("click", async() => {
-    let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-    chrome.scripting.executeScript({
-      target: { tabId: tab.id },
-      func: change(),
-    });
-  });
-
-  function change(){
-    ctx.strokeStyle = "#FFF69E";
-  }
-
 
     function stopDrawing() {
       //canva = document.getElementById("canva");
