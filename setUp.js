@@ -22,7 +22,7 @@ let ui = `<style>
     background:rgb(218, 218, 218);
 }
 </style>
-        <div class = "container" style = "z-index: 1000">
+        <div class = "container" style = "z-index: 1000; display: inline-block">
             <button class="color"></button>
             <button  class = "color" style = "background:#58eb7c"></button>
             <input id="stroke" name='stroke' type="color">
@@ -31,6 +31,7 @@ let ui = `<style>
 
 let interface = document.createElement("div");
 interface.innerHTML = ui;
+interface.style.display = "inline-block";
 
 
 
