@@ -1,6 +1,6 @@
 document.getElementById("division").hidden = false;
 
-draw = (e) => {
+function draw(e){
     if(!isPainting) {
         return;
     }
@@ -11,19 +11,21 @@ draw = (e) => {
     ctx.stroke();
 }
 
-canva.addEventListener('mousedown', (e) => {
+canva.addEventListener('pointerdown', down = (e) => {
     isPainting = true;
     var rect = canva.getBoundingClientRect();
-    console.log(rect);
+    // debugging: console.log(rect);
     startX = e.clientX - rect.x;
     startY = e.clientY- rect.y;
-    canva.addEventListener('mousemove', draw);
+    canva.style.touchAction = "none";
+    canva.addEventListener('pointermove', draw);
 });
 
-canva.addEventListener('mouseup', e => {
+canva.addEventListener('pointerup', e => {
     isPainting = false;
-    ctx.stroke();
+    ctx.stroke()
     ctx.beginPath();
+    canva.removeEventListener('pointermove', draw);
 });
 
 stroke.addEventListener('change', e =>{
