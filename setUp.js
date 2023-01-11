@@ -3,7 +3,6 @@ const canva = document.createElement("canvas");
 const division = document.createElement("div");
 let ui = `<style>
 
-
 .color {
     box-sizing: border-box;
         width: 30px;
@@ -30,7 +29,6 @@ let ui = `<style>
         </div>
 `
 let interface = document.createElement("div");
-//let shadowRoot = interface.attachShadow({ mode: 'open' });
 interface.innerHTML = ui;
 interface.style.display = "inline-block";
 
@@ -57,11 +55,17 @@ interface.style.zIndex = "1000";
 interface.style.bottom = (screen.height/2) + "px";
 interface.style.left = 0;
 
-const ctx = canva.getContext('2d');
+const ctx = canva.getContext('2d',{ willReadFrequently: true });
 let lineWidth = 5;
 let isPainting = false;
-var startX;
-var startY;
+let startX;
+let startY;
+
+const undoStack = [];
+let size = 1;
+let buffer = [];
+undoStack[0] = ctx.getImageData(0,0,document.documentElement.scrollWidth,document.documentElement.scrollHeight);
+
 console.log("Setupped");
 
 

@@ -15,9 +15,13 @@ stopDraw.addEventListener("click", async () => {
     });
 
     function stopDrawing() {
-      console.log("stopped")
-      canva.removeEventListener('mousemove', draw);
-      document.getElementById("division").hidden = true;
+      console.log("stopped");
+      canva.removeEventListener('pointerdown', down);
+      canva.removeEventListener('pointerup', up);
+      stroke.removeEventListener('change', changeColor);
+      undo.removeEventListener('click', undoStroke);
+      division.style.visibility = 'hidden';
+      document.getElementById("container").hidden = true;
       canva.style.touchAction = "auto";
   }
 
