@@ -24,7 +24,7 @@ let ui = `<style>
 </style>
         <div class = "container" style = "z-index: 1000; display: inline-block">
             <button class="color"></button>
-            <button  class = "color" style = "background:#58eb7c"></button>
+            <button  class = "color" style = "background:#58eb7c" id='undo'></button>
             <input id="stroke" name='stroke' type="color">
         </div>
 `

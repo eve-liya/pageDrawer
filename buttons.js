@@ -20,4 +20,6 @@ stopDraw.addEventListener("click", async () => {
       document.getElementById("division").hidden = true;
       canva.style.touchAction = "auto";
   }
+
+
   

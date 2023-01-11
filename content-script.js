@@ -1,4 +1,21 @@
 document.getElementById("division").hidden = false;
+const undoStack = [];
+let size = 0;
+
+function addStroke(imageData) {
+    undoStack[size] = imageData;
+    console.log(imageData);
+    size++;
+}
+
+function undoStroke(){
+    size--;
+    ctx.putImageData(undoStack[size],0,0);
+    undoStack[size] = null;
+    console.log(undoStack);
+    console.log(size);
+}
+
 
 function draw(e){
     if(!isPainting) {
@@ -8,6 +25,7 @@ function draw(e){
     ctx.lineWidth = lineWidth;
     ctx.lineCap = 'round';
     ctx.lineTo(e.clientX - rect.x, e.clientY- rect.y);
+    console.log("Drawing");
     ctx.stroke();
 }
 
@@ -25,11 +43,18 @@ canva.addEventListener('pointerup', e => {
     isPainting = false;
     ctx.stroke()
     ctx.beginPath();
+    addStroke(ctx.getImageData(0,0,document.documentElement.scrollWidth,document.documentElement.scrollHeight));
     canva.removeEventListener('pointermove', draw);
 });
 
 stroke.addEventListener('change', e =>{
     ctx.strokeStyle = e.target.value;
+});
+
+undo.addEventListener("click", e => {
+    console.log("undone");
+    undoStroke();
 })
+
 
 
