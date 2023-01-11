@@ -1,4 +1,7 @@
-document.getElementById("division").hidden = false;
+division.style.visibility = "visible";
+document.getElementById("container").hidden = false;
+
+
 const undoStack = [];
 let size = 0;
 
