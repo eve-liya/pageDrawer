@@ -1,34 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <style>
-.button {
-  display: inline-block;
-  padding: 15px 25px;
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: #000000;
-  border: none;
-  border-radius: 15px;  
-  box-shadow: 0 9px #999;
-}
-
-.button:hover {background-color: #7b7b7b}
-
-.button:active {
-  background-color: #565656;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
-        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Drawing Extension</title>
+        <link rel="stylesheet" href="button.css">
     </head>
     <body>
-      <button class="button", id = "drawing">Start Drawing</button>
-      <button class="button", id = "stopDraw">Stop</button>
-      <script src="buttons.js"></script>
+        <div class="popup-container">
+            <button class="button" id="drawing">Start Drawing</button>
+            <button class="button" id="stopDraw">Stop Drawing</button>
+        </div>
+        <script src="buttons.js"></script>
     </body>
 </html>
